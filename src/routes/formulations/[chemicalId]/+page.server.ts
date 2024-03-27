@@ -17,10 +17,7 @@ function projectChemical(chem: ChemicalProjection): PageModel {
   return {
     title: `Formulations of ${chem.chemical.Name}`,
     data: chem,
-    crumbs: [
-      { title: chem.section.Name, url: `../sections/#${chem.section.ID}` },
-      { title: chem.atc2.Name, url: `../${chem.atc2.ID}` }
-    ]
+    crumbs: []
   };
 }
 

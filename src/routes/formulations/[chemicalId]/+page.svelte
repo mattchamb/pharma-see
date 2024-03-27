@@ -56,10 +56,10 @@
                       {f.Units}
                     </td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      ${pack.Price.toFixed(2)}
+                      {#if pack.Price}${pack.Price.toFixed(2)}{/if}
                     </td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      ${pack.Subsidy.toFixed(2)}
+                      {#if pack.Subsidy}${pack.Subsidy.toFixed(2)}{/if}
                     </td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                       ${priceDifference.toFixed(2)}
