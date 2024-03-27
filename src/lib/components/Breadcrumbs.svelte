@@ -3,6 +3,7 @@
 
 <script lang="ts">
   import type { BreadcrumbLink } from '$lib/PageModels';
+  import { base } from '$app/paths';
 
   export let crumbs: BreadcrumbLink[];
 </script>
@@ -11,7 +12,7 @@
   <ol role="list" class="flex items-center space-x-4">
     <li>
       <div>
-        <a href="/" class="text-gray-400 hover:text-gray-500">
+        <a href={base} class="text-gray-400 hover:text-gray-500">
           <svg
             class="h-5 w-5 flex-shrink-0"
             viewBox="0 0 20 20"

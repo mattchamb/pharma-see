@@ -3,7 +3,6 @@ import type { EntryGenerator, PageServerLoad } from './$types';
 import type {} from './$types';
 import { error } from '@sveltejs/kit';
 import type { ChemicalProjection } from '$lib/server/ScheduleAccessor';
-import type { BreadcrumbLink } from '$lib/PageModels';
 
 export const prerender = true;
 
