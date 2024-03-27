@@ -1,6 +1,7 @@
-import type { ScheduleRoot } from './ScheduleTypes';
-import asdf from './data/Schedule_2024-03.xml?raw';
+import March2024Raw from './data/Schedule_2024-03.xml?raw';
 import { XMLParser } from 'fast-xml-parser';
+import { ScheduleAccessor } from '$lib/server/ScheduleAccessor';
+import type { ScheduleRoot } from '$lib/server/ScheduleTypes';
 
 const alwaysArray = [
   'Schedule.Section',
@@ -17,12 +18,16 @@ const parser = new XMLParser({
   removeNSPrefix: true,
   htmlEntities: false,
   ignoreAttributes: false,
-  isArray: (name, jpath, isLeafNode, isAttribute): boolean | undefined => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  isArray: (_, jpath): boolean | undefined => {
     if (alwaysArray.indexOf(jpath) !== -1) {
       return true;
     }
     return undefined;
-  }
+  },
+  attributeNamePrefix: ''
 });
 
-export const obj = parser.parse(asdf) as ScheduleRoot;
+export const March2024 = parser.parse(March2024Raw) as ScheduleRoot;
+export const latest = new ScheduleAccessor(March2024);
