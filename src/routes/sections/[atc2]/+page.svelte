@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageServerData } from './$types';
+  import { base } from '$app/paths';
 
   export let data: PageServerData;
 </script>
@@ -12,7 +13,7 @@
         <ul role="list" class="px-4 divide-y divide-gray-200">
           {#each atc3.chemicals as chem}
             <li class="">
-              <a class="py-4 block hover:bg-gray-50" href={`/formulations/${chem.id}`}>
+              <a class="py-4 block hover:bg-gray-50" href={`${base}/formulations/${chem.id}`}>
                 {atc3.name} - {chem.name}
               </a>
             </li>

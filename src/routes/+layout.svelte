@@ -19,26 +19,26 @@
           <div class="flex -my-px ml-6 space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
             <a
-              href="sections"
+              href="/"
               class="border-indigo-500 text-gray-900 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
               aria-current="page"
             >
               Dashboard
             </a>
             <a
-              href="sections"
+              href="/"
               class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
             >
               Team
             </a>
             <a
-              href="sections"
+              href="/"
               class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
             >
               Projects
             </a>
             <a
-              href="sections"
+              href="/"
               class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
             >
               Calendar

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageServerData } from './$types';
+  import { base } from '$app/paths';
   export let data: PageServerData;
 </script>
 
@@ -12,7 +13,7 @@
           {#each section.atc1 as atc1}
             {#each atc1.atc2 as atc2}
               <li class="">
-                <a class="py-4 block hover:bg-gray-50" href={`/sections/${atc2.id}`}>
+                <a class="py-4 block hover:bg-gray-50" href={`${base}/sections/${atc2.id}`}>
                   {atc1.name} - {atc2.name}
                 </a>
               </li>

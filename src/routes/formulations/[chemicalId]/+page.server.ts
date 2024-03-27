@@ -15,6 +15,7 @@ interface PageModel {
 
 function projectChemical(chem: ChemicalProjection): PageModel {
   return {
+    chemicalId: chem.chemical.ID,
     title: `Formulations of ${chem.chemical.Name}`,
     data: chem,
     crumbs: []
