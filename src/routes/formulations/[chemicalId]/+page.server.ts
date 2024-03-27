@@ -7,17 +7,31 @@ import type { BreadcrumbLink } from '$lib/PageModels';
 
 export const prerender = true;
 
-interface PageModel {
-  title: string;
-  data: ChemicalProjection;
-  crumbs: BreadcrumbLink[];
-}
-
-function projectChemical(chem: ChemicalProjection): PageModel {
+function selector(chem: ChemicalProjection) {
   return {
     chemicalId: chem.chemical.ID,
     title: `Formulations of ${chem.chemical.Name}`,
-    data: chem,
+    formulations: chem.chemical.Formulation.map((form) => {
+      return {
+        id: form.ID,
+        name: form.Name,
+        units: form.Units,
+        brands: form.Brand.map((brand) => {
+          return {
+            id: brand.ID,
+            name: brand.Name,
+            packs: brand.Pack.map((pack) => {
+              return {
+                id: pack.ID,
+                price: pack.Price ?? 0,
+                subsidy: pack.Subsidy ?? 0,
+                quantity: pack.Quantity
+              };
+            })
+          };
+        })
+      };
+    }),
     crumbs: []
   };
 }
@@ -28,9 +42,9 @@ export const load = (async ({ params }) => {
   if (!chemical) {
     error(404);
   }
-  return projectChemical(chemical);
+  return selector(chemical);
 }) satisfies PageServerLoad;
 
 export const entries: EntryGenerator = () => {
-  return latest.chemicals.map((x) => ({ chemicalId: x.chemical.ID, ...projectChemical(x) }));
+  return latest.chemicals.map(selector);
 };
